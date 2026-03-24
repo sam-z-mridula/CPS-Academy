@@ -7,6 +7,8 @@ ____  ___.__ .__                          _________ .__               .___
       \_/                     \/                 \/            \/      \/     \/     
 */
 
+// Rating = 1200
+
 #include <bits/stdc++.h>
 using namespace std;
 
