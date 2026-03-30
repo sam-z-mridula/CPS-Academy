@@ -1,0 +1,52 @@
+APS = All Possible Solution
+------------------------------------------------- ### KnapSack: -------------------------------------------------
+
+***KnapSack with Cutter*** ------------>>> "Fractional KnapSack" : Can be solved in a Greedy way
+
+You have a metal Cutter.
+
+KnapSack capacity = mx_w8 kg
+1. Gold       = p$ -> w kg
+2. Silver     = p$ -> w kg
+3. Iron       = p$ -> w kg
+4. Copper     = p$ -> w kg
+5. Platinum   = p$ -> w kg
+
+এখানে greedy apply হবে **unit value** এর উপরে।
+unit value = p / w.
+যার unit value যতবেশি, সেটা শেষ না হওয়া পর্যন্ত নিতে হবে। আর শেষেরটা কেটে নিতে হবে। 
+
+***KnapSack without Cutter*** ---------->>> "0-1 KnapSack" : Cannot be solved in a Greedy way
+
+
+------------------------------------------------- ### Greedy: -------------------------------------------------
+
+1. Intuition
+2. Try to prove the Intuition wrong by Counter Example (if you fail = success) 
+*** Greedy তে APS try করা হয় না, কোনো ১টা property কে priority দিয়ে তার basis-এ solution দাঁড় করানোর চেষ্টা করা হয়
+
+### A Great Greedy Example:
+Q.// 
+তোমার কাছে 24 hrs সময় আছে। কিছু কাজের time-blocks দেওয়া হবে। Efficiently time-blocks নিলে বের করতে হবে highest কয়টা কাজ করা সম্ভব।
+Rules: time-blocks কেউ কারোর সাথে overlap করলে তাদের মধ্যে থেকে শুধু ১টা করা যাবে, বাকিদের করা যাবে না।
+
+Input:
+8 - 16
+5 - 9   ✅
+11 - 14 ✅
+16 - 18 ✅
+Output: 3
+
+Intuition 1: সবগুলোর duration বের করে যাদের duration সবচেয়ে কম, তাদের নেব। 
+Counter Example: 12-19, 19-20, 20-24 
+
+Intuition 2: Start time এর উপর Greedy, মানে যার start time আগে সেটা নিয়ে আগাবো, এরপরে কোনোটা overlap করলে সেটা বাদ দিয়ে দেব। 
+Counter Example: 4-20, 4-6, 7-8, 9-10
+
+Intuition 3: End time এর উপর Greedy, মানে যার end time আগে সেটা নিয়ে আগাবো, এরপরে কোনোটা overlap করলে সেটা বাদ দিয়ে দেব। 
+Counter Example: Not Possible, this is the answer
+
+----------------------------------- ### How to know if a Problem is Greedy: -------------------------------------------------
+
+সব problem-ই Greedy way-তে চিন্তা করা শুরু করবো, যদি না হয়, তাহলে Greedy না। Otherwise, Greedy
+** যা Bruteforce না, আর কোনো Mathematical formula না, তার সবই Greedy

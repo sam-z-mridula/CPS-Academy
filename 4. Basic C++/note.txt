@@ -1,0 +1,12 @@
+**Some built-in Functions:**
+1) isalpha (a-z, A-Z), isupper, islower,
+2) toupper, tolower 
+3) isdigit
+4) isspace (newline (\n), space both)
+
+5) strcpy(destination, source) --> Syntax (to copy the 'source' into the 'destination')
+6) strcat(destination, source) --> (to concatenate(add) the 'source' at the end of the 'destination' into the 'destination')
+7) strcmp(string1, string2)
+    --> -1 = string1 ছোট
+    --> 1 = string1 বড় 
+    --> 0 = সমান (২টা exactly same) 
