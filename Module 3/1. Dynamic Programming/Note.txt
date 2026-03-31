@@ -1,0 +1,25 @@
+***Dynamic Programming***
+1. Array to store preCalculated answer.
+2. Use preCalculated answer.
+
+*** Theoretical Characteristics of DP ***
+1. Dependency: 
+    f(n) = f(n-1) + f(n-2)
+    Here, f(n) is dependent on f(n-1) and f(n-2).
+
+2. Dynamic Programming has 2 styles:
+    1. Recursive
+    2. Iterative
+
+        Recursive                    |          Iterative
+    1. Uses Recursion.               |       1. Uses for loop.
+    2. Top to Bottom Approach.       |       2. Bottom to Top Approach.
+       --> বড় থেকে ছোট                         --> ছোট থেকে বড়
+    3. Easier.                       |       3. Harder.
+    4. Slower. (waiting)             |       4. Faster (No Wating)
+                    5. Both works in the same Time Complexity.
+
+*** Basic DP তে সাধারণত যা আসে ***
+1. max/min cost, steps
+2. count (১টা কাজ কতভাবে করা যায়)
+    --> f(n) = number of ways to reach 'n'
