@@ -1,0 +1,67 @@
+/* IN THE NAME OF ALMIGHTY ALLAH
+____  ___.__ .__                          _________ .__               .___           
+\   \/  /|__||  | ___  __  ____ _______   \_   _   \|  |  _____     __| _/ ____      
+ \     / |  ||  | \  \/ /_/ __ \\_  __ \   |  | ) _/|  |  \__  \   / __ |_/ __ \     
+ /     \ |  ||  |__\   / \  ___/ |  | \/   |  |_)  \|  |__ / __ \_/ /_/ |\  ___/     
+/___/\  \|__||____/ \_/   \___  >|__|      |_____  /|____/(____  /\____ | \___  >    
+      \_/                     \/                 \/            \/      \/     \/     
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+using vi = vector<int>;
+using vll = vector<ll>;
+#define nl '\n'
+#define cy cout << "YES"
+#define cn cout << "NO"
+
+void solve()
+{
+    int n; cin >> n;
+    vi v(n); for (auto &u : v) cin >> u;
+    int m; cin >> m;
+    vi w(m); for(auto &u : w) cin >> u;
+    
+    vi pfx(n); pfx[0] = v[0];
+    for(int i = 1; i < n; i++) pfx[i] = v[i] + pfx[i - 1];
+    
+    for(auto u : w)
+    {
+        /* ------------ Binary Search ------------
+        int high = n-1, low = 0;
+        int ans;
+        while(high >= low)
+        {
+            int mid = (high + low) / 2;
+
+            if(pfx[mid] < u) low = mid + 1;
+            else
+            {
+                ans = mid;
+                high = mid - 1;
+            }
+        }
+        
+        cout << ans + 1 << nl; */
+
+        // ------------ Lower bound ------------
+        int idx = lower_bound(pfx.begin(), pfx.end(), u) - pfx.begin() + 1;
+        cout << idx << nl;
+    }
+}
+
+int main()
+{
+    ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(0);
+    
+    int T = 1;
+    // cin >> T;
+    while (T--) { solve(); }
+}
+/*
+-------------------------------------
+ Solved by : Sameeha Zahan Mridula
+-------------------------------------
+*/

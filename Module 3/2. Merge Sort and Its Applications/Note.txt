@@ -1,4 +1,23 @@
-Topics:
+🌟Topics:
 1. Divide & Conquer 
 2. Merge Sort 
 3. Problem Solving
+
+/----------------- Divide & Conquer ---------------/
+Steps:
+    1) Divide the problem into smaller ranges (recursively).
+    2) Solve the smaller problems.
+    3) Merge the smaller solutions to get the large solution.
+
+⭐ We can merge 2 sorted arrays in O(n) operations.
+⭐ Time Complexity of Merge Sort = N*log(N).
+
+
+🚩Inversion:
+In an array, 
+    1) i < j        --> i = left, j = right
+    2) a[i] > a[j]  --> descendingly 
+
+⭐ Sub-sequence V/S Sub-array
+--> Sub-array = Strictly contiguous sub-segment of the array.
+--> Sub-sequence = Not necessarily contiguous.

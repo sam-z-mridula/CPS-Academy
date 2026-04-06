@@ -1,0 +1,11 @@
+🌟 Lower bound & Upper bound:
+
+--> Suppose, কোনো array given which must be sorted.
+কোনো value এর Lower bound = এই value কে ঐ array তে সামনের দিকে কোথায় (minimum কোন index-এ) রাখলে array sorted-ই থাকবে
+কোনো value এর Upper bound = এই value কে ঐ array তে পেছনের দিকে কোথায় (maximum কোন index-এ) রাখলে array sorted-ই থাকবে
+
+✳️ কোনো value এর ২টা bound-ই যদি same হয় = The value does not exist in the array.
+✳️ frequency of the value in the array = Upper bound - Lower bound
+
+যেসব function iterator return করে, সেগুলো থেকে index পাওয়ার উপায়:
+--> int idx = function(---) - var.begin() 
