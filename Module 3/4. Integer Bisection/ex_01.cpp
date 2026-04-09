@@ -7,6 +7,9 @@ ____  ___.__ .__                          _________ .__               .___
       \_/                     \/                 \/            \/      \/     \/     
 */
 
+// Question:
+// integer bisection দিয়ে first and last occurance বের করো
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,24 +20,18 @@ using vll = vector<ll>;
 #define cy cout << "YES"
 #define cn cout << "NO"
 
-// customize --> according to the problem
 bool isOK(int i, int val, vi &v)
 {
-    // right side = false
-    if(v[i] >= val) return 0;
-    return 1;
-
     // right side = true
-    // if(v[i] >= val) return 1;
-    // return 0;
+    if(v[i] >= val) return 1;
+    return 0;
 }
 
 // Use it as Black Box
 void solve()
 {
-    int n, val; cin >> n >> val;
-    vi v(n);
-    for (auto &u : v) cin >> u;
+    int n = 10, val = 7;
+    vi v = {1, 3, 4, 4, 6, 7, 7, 7, 9, 12};
     
     int l = 0, r = n;
     while (l < r)
@@ -42,20 +39,16 @@ void solve()
         int mid = (l + r) / 2;
         if(isOK(mid, val, v))
         {
-            // according to the problem
-            l = mid + 1;
-            // r = mid; 
+            r = mid; // right side is true
         }
         else
         {
-            // according to the problem
-            r = mid;
-            // l = mid + 1;
+            l = mid + 1; // right side is true
         }
     }
     
-    cout << l << nl;  
-    // শেষে l = right side partition এর প্রথম value 
+    cout << "First occ: " << l << nl; 
+    //      l = first true (if right side is true), l-1 = last false
 }
 
 int main()

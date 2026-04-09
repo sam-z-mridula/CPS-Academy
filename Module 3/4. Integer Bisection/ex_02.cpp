@@ -17,45 +17,33 @@ using vll = vector<ll>;
 #define cy cout << "YES"
 #define cn cout << "NO"
 
-// customize --> according to the problem
-bool isOK(int i, int val, vi &v)
-{
-    // right side = false
-    if(v[i] >= val) return 0;
-    return 1;
+// Question:
+// array = 5, 6, 7, 9, 12, 1, 3, 4
+// এই sorted array তে ১ সেট element (sub-array) rotate করা হয়েছে, সেই set-এ কয়টা element ছিল?
 
-    // right side = true
-    // if(v[i] >= val) return 1;
-    // return 0;
+bool isOK(int idx, vi &v)
+{
+    // target: যেহেতু array sorted, যেই set rotate করা হয়েছে তার ১ম val বর্তমান array এর ১ম val থেকে অবশ্যই ছোট হবে, কারণ সেটা পুরো array-এরই সবচেয়ে ছোট element. 
+    // So, current val 'v[idx]' যদি v[0] থেকে বড় হয়, তারমানে আরও right side এ যেতে হবে, কারণ এখন normal increasing অংশের মধ্যে আছে
+    if(v[idx] > v[0]) return 1;
+    return 0;
 }
 
-// Use it as Black Box
 void solve()
 {
-    int n, val; cin >> n >> val;
+    int n; cin >> n;
     vi v(n);
     for (auto &u : v) cin >> u;
     
     int l = 0, r = n;
     while (l < r)
     {
-        int mid = (l + r) / 2;
-        if(isOK(mid, val, v))
-        {
-            // according to the problem
-            l = mid + 1;
-            // r = mid; 
-        }
-        else
-        {
-            // according to the problem
-            r = mid;
-            // l = mid + 1;
-        }
+        int mid = (l+r)/2;
+        if(isOK(mid, v)) l = mid + 1;       // go right to find v[idx] < v[0]
+        else r = mid;
     }
-    
-    cout << l << nl;  
-    // শেষে l = right side partition এর প্রথম value 
+
+    cout << n - l;
 }
 
 int main()
@@ -68,6 +56,6 @@ int main()
 }
 /*
 -------------------------------------
- Solved by : Sameeha Zahan Mridula
+  Coded by : Sameeha Zahan Mridula
 -------------------------------------
 */

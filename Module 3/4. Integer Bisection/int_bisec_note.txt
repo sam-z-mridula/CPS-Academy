@@ -1,0 +1,1 @@
+🌟 integer bisection is better than formal binary search approach
